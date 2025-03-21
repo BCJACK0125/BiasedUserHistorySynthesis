@@ -96,6 +96,15 @@ def batch_to_device_bx(user_feats, item_feats, device):
 
 def train_ml():
     user_data, item_data, interactions, num_movie_dates = read_movielens(datasets_dir=FLAGS.dataset_dir)
+    
+    # Print the sample of read data
+    print(f"Sample of User Data: {list(user_data.items())[:5]}")
+    print(f"Sample of Item Data: {list(item_data.items())[:5]}")
+    print(f"Sample of Interactions: {list(interactions.items())[:5]}")
+    print(f"Number of Movie Dates: {num_movie_dates}")
+
+    return  
+    
     ml_graph = MovielensInteractionGraph(user_data, item_data, interactions, warm_threshold=FLAGS.warm_threshold)
     ml_graph.compute_tail_distribution()
     ml_graph.split_statistics()
