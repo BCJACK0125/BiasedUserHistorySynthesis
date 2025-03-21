@@ -102,8 +102,6 @@ def train_ml():
     print(f"Sample of Item Data: {list(item_data.items())[:5]}")
     print(f"Sample of Interactions: {list(interactions.items())[:5]}")
     print(f"Number of Movie Dates: {num_movie_dates}")
-
-    return  
     
     ml_graph = MovielensInteractionGraph(user_data, item_data, interactions, warm_threshold=FLAGS.warm_threshold)
     ml_graph.compute_tail_distribution()
